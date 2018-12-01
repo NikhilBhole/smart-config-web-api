@@ -1,14 +1,10 @@
 package com.chinmay.it.mfg;
 
-import java.io.IOException;
-
-import org.apache.tomcat.jdbc.pool.DataSource;
-import org.springframework.beans.factory.annotation.Value;
+//import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.support.SpringBootServletInitializer;
-import org.springframework.context.annotation.Bean;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
@@ -25,7 +21,7 @@ public class Application extends SpringBootServletInitializer {
 		return application.sources(Application.class);
 	}
 	/*--------Jasypt Password Encryption Start--------*/
-	private static final int MAX_ACTIVE = 80;
+	/*private static final int MAX_ACTIVE = 80;
 	private static final int MAX_WAIT = 1000;
 	private static final int MAX_AGE = 3600000;
 	private static final String VALIDATION_QUERY = "SELECT 1";
@@ -55,7 +51,7 @@ public class Application extends SpringBootServletInitializer {
 		dataSource.setValidationQuery(VALIDATION_QUERY);
 		dataSource.setTestOnBorrow(true);
 		return dataSource;
-	}
+	}*/
 	/*--------Jasypt Password Encryption End--------*/
 
 }

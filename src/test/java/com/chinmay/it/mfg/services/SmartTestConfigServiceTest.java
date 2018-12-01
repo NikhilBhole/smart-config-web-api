@@ -2,9 +2,9 @@ package com.chinmay.it.mfg.services;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.anyList;
-import static org.mockito.Matchers.anyString;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyList;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -38,7 +38,6 @@ import com.chinmay.it.mfg.repositories.CanHardwareDAO;
 import com.chinmay.it.mfg.repositories.ConfigSettingDAO;
 import com.chinmay.it.mfg.repositories.JdTesterHardwareDAO;
 import com.chinmay.it.mfg.repositories.PlantStationDetailsDAO;
-import com.chinmay.it.mfg.services.SmartTestConfigService;
 
 @RunWith(MockitoJUnitRunner.class)
 public class SmartTestConfigServiceTest {
@@ -86,10 +85,10 @@ public class SmartTestConfigServiceTest {
 	public void whenCanHardwareInputProvided_mapCanHardwareDomainMapperAndSaveCanHardwareDAO() {
 		canHardwareBeanList = CanHardwareBuilder.createCanHardwareBeanList();
 		when(canHardwareMapper.mapCanHardwareList(anyList())).thenReturn(canHardwareList);
-		when(canHardwareDAO.save(anyList())).thenReturn(canHardwareList);
+		when(canHardwareDAO.saveAll(anyList())).thenReturn(canHardwareList);
 		Assert.assertTrue(smartTestConfigService.saveCanHardwareList(canHardwareBeanList));
 		verify(canHardwareMapper).mapCanHardwareList(canHardwareBeanList);
-		verify(canHardwareDAO).save(canHardwareList);
+		verify(canHardwareDAO).saveAll(canHardwareList);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -97,10 +96,10 @@ public class SmartTestConfigServiceTest {
 	public void whenConfigSettingInputProvided_mapConfigSettingDomainMapperAndSaveConfigSettingDAO() {
 		configSettingBeanList = ConfigSettingBuilder.createConfigSettingBeanList();
 		when(configSettingMapper.mapCanHardwareList(anyList())).thenReturn(configSettingList);
-		when(configSettingDAO.save(anyList())).thenReturn(configSettingList);
+		when(configSettingDAO.saveAll(anyList())).thenReturn(configSettingList);
 		Assert.assertTrue(smartTestConfigService.saveConfigSettingList(configSettingBeanList));
 		verify(configSettingMapper).mapCanHardwareList(configSettingBeanList);
-		verify(configSettingDAO).save(configSettingList);
+		verify(configSettingDAO).saveAll(configSettingList);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -108,10 +107,10 @@ public class SmartTestConfigServiceTest {
 	public void whenJdTesterHardwareInputProvided_mapJdTesterHardwareDomainMapperAndSaveJdTesterHardwareDAO() {
 		jdTesterHardwareBeanList = JdTesterHardwareBuilder.createJdTesterHardwareBeanList();
 		when(jdTesterHardwareMapper.mapJdTesterHardwareList(anyList())).thenReturn(jdTesterHardwareList);
-		when(jdTesterHardwareDAO.save(anyList())).thenReturn(jdTesterHardwareList);
+		when(jdTesterHardwareDAO.saveAll(anyList())).thenReturn(jdTesterHardwareList);
 		Assert.assertTrue(smartTestConfigService.saveJdTesterHardwareList(jdTesterHardwareBeanList));
 		verify(jdTesterHardwareMapper).mapJdTesterHardwareList(jdTesterHardwareBeanList);
-		verify(jdTesterHardwareDAO).save(jdTesterHardwareList);
+		verify(jdTesterHardwareDAO).saveAll(jdTesterHardwareList);
 	}
 
 	@Test

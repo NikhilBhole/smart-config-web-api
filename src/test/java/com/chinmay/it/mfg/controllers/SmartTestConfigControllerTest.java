@@ -2,9 +2,9 @@ package com.chinmay.it.mfg.controllers;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.anyList;
-import static org.mockito.Matchers.anyString;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyList;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -23,7 +23,6 @@ import com.chinmay.it.mfg.bean.CanHardwareBean;
 import com.chinmay.it.mfg.bean.ConfigSettingBean;
 import com.chinmay.it.mfg.bean.JdTesterHardwareBean;
 import com.chinmay.it.mfg.bean.PlantStationDetailsBean;
-import com.chinmay.it.mfg.controllers.SmartTestConfigController;
 import com.chinmay.it.mfg.dataBuilders.CanHardwareBuilder;
 import com.chinmay.it.mfg.dataBuilders.ConfigSettingBuilder;
 import com.chinmay.it.mfg.dataBuilders.JdTesterHardwareBuilder;
@@ -77,9 +76,6 @@ public class SmartTestConfigControllerTest {
 	@Test
 	public void whenFetchPlantStationDetailsWithProperInputs_FetchPlantStationDetailsOutputIsRetrieved()
 			throws Exception {
-		List<PlantStationDetailsBean> plantStationDetailsBeanList = new ArrayList<>();
-		when(smartTestConfigService.fetchPlantStationDetails(anyString())).thenReturn(plantStationDetailsBeanList);
-
 		ResponseEntity<List<PlantStationDetailsBean>> plantStationDetailsBeanListResponseEntity = smartTestConfigController.fetchUnitCodeDetails();
 
 		assertEquals(HttpStatus.OK, plantStationDetailsBeanListResponseEntity.getStatusCode());

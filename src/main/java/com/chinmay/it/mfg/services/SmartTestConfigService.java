@@ -74,37 +74,37 @@ public class SmartTestConfigService {
     }
 
     public boolean saveCanHardwareList(List<CanHardwareBean> canHardwareBeanList) {
-		return null != canHardwareDAO.save(canHardwareMapper.mapCanHardwareList(canHardwareBeanList)) ? true : false;
+		return null != canHardwareDAO.saveAll(canHardwareMapper.mapCanHardwareList(canHardwareBeanList)) ? true : false;
     }
 
     public boolean saveConfigSettingList(List<ConfigSettingBean> configSettingBeanList) {
-        return null != configSettingDAO.save(configSettingMapper.mapCanHardwareList(configSettingBeanList)) ? true : false;
+        return null != configSettingDAO.saveAll(configSettingMapper.mapCanHardwareList(configSettingBeanList)) ? true : false;
     }
 
     public boolean saveJdTesterHardwareList(List<JdTesterHardwareBean> jdTesterHardwareBeanList) {
-        return null != jdTesterHardwareDAO.save(jdTesterHardwareMapper.mapJdTesterHardwareList(jdTesterHardwareBeanList)) ? true : false;
+        return null != jdTesterHardwareDAO.saveAll(jdTesterHardwareMapper.mapJdTesterHardwareList(jdTesterHardwareBeanList)) ? true : false;
     }
 
     public boolean deleteWorkStationDetails(String id) {
         canHardwareDAO.deleteByPlantStationId(id);
         configSettingDAO.deleteByPlantStationId(id);
         jdTesterHardwareDAO.deleteByPlantStationId(id);
-        plantStationDetailsDAO.delete(id);
+        plantStationDetailsDAO.deleteById(id);
         return true;
     }
     
     public boolean deleteCanHardware(String id) {
-        canHardwareDAO.delete(id);
+        canHardwareDAO.deleteById(id);
         return true;
     }
     
     public boolean deleteConfigSetting(String id) {
-        configSettingDAO.delete(id);
+        configSettingDAO.deleteById(id);
         return true;
     }
     
     public boolean deleteJdTesterHardware(String id) {
-        jdTesterHardwareDAO.delete(id);
+        jdTesterHardwareDAO.deleteById(id);
         return true;
     }
 }
